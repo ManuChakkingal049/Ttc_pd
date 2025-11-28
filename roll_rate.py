@@ -127,8 +127,19 @@ st.markdown("""
 - Maximum 50 clients
 - Random dummy ratings
 - Overlapping horizons of 12 months (each snapshot compares to next year)
-""")
 
+# ---------------------------
+# Show raw data
+# ---------------------------
+with st.expander("View raw snapshot data (initial dataset)"):
+    st.markdown("""
+This shows the **raw input data** used for the migration analysis.  
+Columns:
+- `snapshot_date`: snapshot month/year
+- `client_id`: unique client identifier
+- `rating`: assigned rating (1–5 or D)
+""")
+    st.dataframe(df)
 # compute migrations
 migrations = compute_migrations(df)
 
